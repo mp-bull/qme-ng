@@ -22,8 +22,8 @@ start with. This can be done with the following options:
 
  --file: give a file as input. The file format can be:
 
-        * an incidence matrix in the classical Maple format
-        * a Keller app file
+    * an incidence matrix in the classical Maple format
+    * a Keller app file
 
  --type x --size y: there some predifined types supported by qme-ng. These two
                     parameters both define the quiver type and its size.
@@ -33,6 +33,7 @@ start with. This can be done with the following options:
  --dump-class prefix: at the end of the exploration, each member of the
                       mutation class will be dumped in a file with a name
                       starting with "prefix"
+
 
 2. Green suite length options
 
