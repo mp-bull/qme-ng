@@ -22,25 +22,21 @@ start with. This can be done with the following options:
 
  --file: give a file as input. The file format can be:
 
-    * an incidence matrix in the classical Maple format
-    * a Keller app file
+* an incidence matrix in the classical Maple format
+* a Keller app file
 
  --type x --size y: there some predifined types supported by qme-ng. These two
                     parameters both define the quiver type and its size.
 
 1. Quiver Mutation class cardinality options
 
- --dump-class prefix: at the end of the exploration, each member of the
-                      mutation class will be dumped in a file with a name
-                      starting with "prefix"
-
+ --dump-class prefix: at the end of the exploration, each member of the mutation class will be dumped in a file with a name starting with "prefix"
 
 2. Green suite length options
 
  --green: enter this mode
 
- --no-iso: do not use isomorphism discrimination. Much longer, but use
-           virtually no memory
+ --no-iso: do not use isomorphism discrimination. Much longer, but use virtually no memory
 
  --max\_depth: limits the tree exploration to the value passed as argument
 
