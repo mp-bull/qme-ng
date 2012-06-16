@@ -8,7 +8,7 @@ QME is a fast quiver manipulation program intended to:
 - find the maximum length of a green suite starting from a given quiver
 
 In order to do so, it uses various optimizations that are specific to the
-problem at hand, and which result from a careful study by Gregoire Dupont and
+problem at hand, and which result from a careful study by Grégoire Dupont and
 Matthieu Pérotin.
 
 
@@ -46,19 +46,19 @@ start with. This can be done with the following options:
 
 History
 ------------------------------------------------------------------------------
-This project startied in 2005 when G. Dupont and M. Pérotin where both Ph.D
+This project started in 2005 when G. Dupont and M. Pérotin where both Ph.D
 students, in Mathematics and Computer Science respectively. G. Dupont needed a
 quick tool to explore the quiver space while M. Pérotin needed a CPU intensive
 application to serve as benchmark for the OS schedulers he was developping.
 
 In 2007, Joris Calabrese, a computer engineer student made an internship
-working on the program and a first parallel versions of the mutation class
-cardinality were obtained.
+working on the program and a first parallel version of the mutation class
+cardinality was obtained.
 
-Now, in 2012, G. Dupont in post doctoral studies and M. Pérotin working as a SW
-Architect for Bull qme-ng as evolved as green suite length computer and is
-still in active developpment in order to solve memory usage issues, and find
-new compute or memory friendly algorithms.
+Now, in 2012, G. Dupont is in post doctoral studies and M. Pérotin is working
+as a SW Architect for Bull. qme-ng has evolved as a green suite length computer
+and is still in active developpment in order to solve memory usage issues, and
+find new compute or memory friendly algorithms.
 
 Contact
 ------------------------------------------------------------------------------
