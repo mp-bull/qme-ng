@@ -1,0 +1,82 @@
+License for the qme-ng source code
+==================================
+
+Except when otherwise stated (look for information at the beginning of each 
+file and the rest of this document) all software and documentation in the 
+qme-ng project is licensed as follows:
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED 
+TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+qme-ng copyright holders 2005-2012
+==================================
+Except when otherwise stated (look for information at the beginning of each 
+file and the rest of this document) the files in the qme-ng project are each
+copyrighted by one or more of the following people and organizations:
+
+Joris Calabrese
+Gregoire Dupont
+Matthieu Pérotin
+
+nauty licence
+=============
+qme-ng comes with nauty, copyrighted by Brendan McKay. This software is subject
+to the following licence:
+ 
+*   Copyright (1984-2007) Brendan McKay.  All rights reserved.  Permission   *
+*   is hereby given for use and/or distribution with the exception of        *
+*   sale for profit or application with nontrivial military significance.    *
+*   You must not remove this copyright notice, and you must document any     *
+*   changes that you make to this program.                                   *
+*   This software is subject to this copyright only, irrespective of         *
+*   any copyright attached to any package of which this is a part.           *
+*                                                                            *
+*   This program is only provided "as is".  No responsibility will be taken  *
+*   by the author, his employer or his pet rabbit* for any misfortune which  *
+*   befalls you because of its use.  I don't think it will delete all your   *
+*   files, burn down your computer room or turn your children against you,   *
+*   but if it does: stiff cheddar.  On the other hand, I very much welcome   *
+*   bug reports, or at least I would if there were any bugs.                 *
+*                                                       * RIP, 1989          *
+
+The following files are part of the nauty package, embedded in qme-ng:
+- include/
+  + nauty.h
+  + nausparse.h
+  + naututil.h
+  + nautinv.h
+- src/
+  + naugrah.c
+  + nausparce.c
+  + naututil.c
+  + nauty.c
+  + nautinv.c
+
+Please see B. D. McKay, nauty User's Guide (Version 2.4),
+  http://cs.anu.edu.au/~bdm/nauty/
+for further reference.
+
+Random Number Generator
+=======================
+The files src/rng.c and include/rng.h implement an random number generator
+by D. E. Knuth. They are subject to the following license:
+
+This program by D E Knuth is in the public domain and freely copyable
+AS LONG AS YOU MAKE ABSOLUTELY NO CHANGES!
