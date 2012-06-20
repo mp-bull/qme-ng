@@ -48,7 +48,7 @@ void GreenSizeHash::addSizes(std::vector<int> &mutations, std::map<uint64_t,mpz_
     for(i=0;i<mutations.size();i++) {
         // Empty the ss object;
         ss.clear();ss.str("");
-        ss << mutations_str << mutations[i] << " ";
+        ss << mutations_str << mutations[i]+1 << " ";
         mutations_str = ss.str();
         // 2. Lookup the mutations_str 
         strhash_it = green_size.find(mutations_str);
