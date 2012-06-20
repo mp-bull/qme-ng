@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Qme-ng : Welcome to qme-ng !" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Qme-ng</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mp-bull/qme-ng">View on GitHub</a>
+
+          <h1 id="project_title">Qme-ng</h1>
+          <h2 id="project_tagline">Welcome to qme-ng !</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mp-bull/qme-ng/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mp-bull/qme-ng/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>qme-ng: Quiver Mutation Explorer</h1>
+
+<p>Welcome to qme-ng !</p>
+
+<p>QME is a fast quiver manipulation program intended to:</p>
+
+<ul>
+<li>find the cardinality of the mutation class of a given quiver</li>
+<li>find the maximum length of a green suite starting from a given quiver</li>
+</ul><p>In order to do so, it uses various optimizations that are specific to the
+problem at hand, and which result from a careful study by Grégoire Dupont and
+Matthieu Pérotin.</p>
+
+<p>QuickJump: <a href="#quickstart">Quickstart</a>, <a href="#overview">Overview</a>, <a href="#installation">Installation</a>, <a href="#documentation">Documentation</a>, <a href="#dependencies">Dependencies</a>, <a href="#licence">License</a>, <a href="#contact">Contact</a>.</p>
+
+<h2>
+<a name="quickstart"></a>Quickstart</h2>
+
+<ul>
+<li>Find the mutation class of D<sub>7</sub><br><code>qme-ng --type D --size 7</code>
+</li>
+<li>Find the length of all the maximum green sequences of the quiver in quiver.qmu<br><code>qme-ng --file quiver.qmu --green</code>
+</li>
+<li>Try to find one green sequence of length at least 30 for the quiver in quiver.qmu<br><code>qme-ng --file quiver.qmu --green --one 50 --min_depth 30 --max_depth 50</code>
+</li>
+</ul><h2>
+<a name="overview"></a>Overview</h2>
+
+<p>Quiver mutations were introduced by Fomin and Zelevinsky in the context of cluster algebras. Initially, the mutation was defined for skew-symmetric (actually skew-symmetrizable) matrices over the integers. Using incidence matrices, there is a 1-1 correspondence between skew-symmetric matrices and oriented graphs without 1-cycles or 2-cycles. These graphs are referred to as quivers in our context.</p>
+
+<p>I will not explain precisely what the quiver (or matrix) mutation is. I think the first way to understand it is to try it on examples using <a href="http://www.math.jussieu.fr/%7Ekeller/quivermutation/">Bernhard Keller’s java applet</a>. Then, if you want to know the precise definition, you can consult <a href="http://arxiv.org/abs/math/0104151">the historical article by Fomin and Zelevinsky on the subject</a>.</p>
+
+<p>Roughly speaking, given a quiver <em>Q</em>, for any vertex <em>i</em> of <em>Q</em>, we can define a new quiver <em>Q’</em>, called mutation of <em>Q</em> at <em>i</em>, by changing locally around <em>i</em> the quiver <em>Q</em>. Iterating this process, we create a list of quivers which can be finite or infinite. The quiver we started with is called <em>mutation-finite</em> if you only create a finite number of new quivers this way, it is called <em>mutation-infinite</em> otherwise.</p>
+
+<p>The aim of QME is to decide, for a given quiver <em>Q</em>, if <em>Q</em> is mutation-finite or not. Also, when <em>Q</em> is mutation-finite, QME gives the number of non-isomorphic quivers created during the process.</p>
+
+<p>Maximal green sequences are particular sequences of quiver mutations which were introduced by Keller in his article <a href="http://arxiv.org/abs/1102.4148">On cluster theory and quantum dilogarithm identities</a> and which appear independently in various areas of mathematics and theoretical physics.</p>
+
+<p>For a purely combinatorial description, we refer to the to the first section of our preprint <a href="http://arxiv.org/abs/1205.2050">On Maximal Green Sequences</a> (joint with T. Brüstle).</p>
+
+<p>Regarding the maximal green sequences problem, the aim of QME is to answer the two following questions, given a quiver <em>Q</em>:</p>
+
+<ol>
+<li>Does there exist a maximal green sequence for <em>Q</em> ?</li>
+<li>If yes, how many maximal green sequences of each length are there in the set of maximal green sequences for <em>Q</em> ?</li>
+</ol><h2>
+<a name="installation"></a>Download &amp; Installation</h2>
+
+<h3>Ubuntu packages</h3>
+
+<p>Packages are available for the Ubuntu distribution. You will not get the best performances from this install mode, yet you may consider it to be more convenient.</p>
+
+<ul>
+<li><a href="https://github.com/downloads/mp-bull/qme-ng/qme-ng_1.1.1-0ubuntu1_i386.deb">qme-ng_1.1.1-0ubuntu1_i386.deb</a></li>
+<li><a href="https://github.com/downloads/mp-bull/qme-ng/qme-ng_1.1.1-0ubuntu1_amd64.deb">qme-ng_1.1.1-0ubuntu1_amd64.deb</a></li>
+</ul><p>The installation procedure is as follows:</p>
+
+<ol>
+<li>Download the Ubuntu package corresponding to your architecture<br>
+</li>
+<li>Install the required libraries:<br><code>sudo apt-get install libgmpxx4ldbl libboost-program-options1.46.1</code>
+</li>
+<li>Install the package<br><code>sudo dpkg -i package.deb</code>
+</li>
+</ol><h3>Compilation from the sources</h3>
+
+<p>This installation mode guarantees the best performances, as you will obtained tailored binaries for your computer architecture.</p>
+
+<ol>
+<li>Get the sources, by clicking on one of the icons on the top of this page or by executing git<br><code>git clone https://github.com/mp-bull/qme-ng.git</code>
+</li>
+<li>Install the building dependencies<br><code>sudo apt-get install libgmp-dev libboost-program-options-dev build-essential</code>
+</li>
+<li>Go into the source directory and compile the project<br><code>make</code>
+</li>
+</ol><p>You now have a qme-ng executable ready to be used !</p>
+
+<h2>
+<a name="documentation"></a>Documentation</h2>
+
+<p>The main documentation of qme-ng is on the <a href="https://github.com/mp-bull/qme-ng/wiki">Wiki</a>.</p>
+
+<h2>
+<a name="dependencies"></a>Dependencies/Requirements</h2>
+
+<ul>
+<li>
+<a href="http://gmplib.org/">gmplib</a> &gt;= 5.0.0</li>
+<li>boost::program::options &gt;= 1.46</li>
+</ul><h2>
+<a name="licence"></a>Licence</h2>
+
+<p>Mainly BSD 2-Clause License. Incorporates <a href="http://cs.anu.edu.au/%7Ebdm/nauty/">nauty</a> which has its own licence.</p>
+
+<h2>
+<a name="contact"></a>Contact &amp; Support</h2>
+
+<p>Matthieu Pérotin matthieu.perotin(a)bull.net</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Qme-ng maintained by <a href="https://github.com/mp-bull">mp-bull</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
