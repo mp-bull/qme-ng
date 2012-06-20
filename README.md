@@ -22,15 +22,16 @@ qme-ng can work in two modes:
 qme-ng:
  - uses isomorphisms discrimination in order to speed its exploration;
  - uses a fast isomorphism algorithm ([nauty](http://cs.anu.edu.au/~bdm/nauty/));
- - uses [arbitrary precision arithmetic libraries](http://http://gmplib.org/), and is thus not limited to your CPU registers size;
+ - uses [arbitrary precision arithmetic libraries](http://gmplib.org/), and is thus not limited to your CPU registers size;
  - can read [Bernhard Keller's java application](http://www.math.jussieu.fr/~keller/quivermutation/) files as input;
  - produces exploitable outputs;
  - prints its mutations sequences in a format compatible with [Bernhard Keller's java application](http://www.math.jussieu.fr/~keller/quivermutation/);
  - contains tens of small optimizations to cut as many branches in the exploration tree as fast as possible;
- - is free software (BSD License, see LICENSE file for the details);
+ - is free software (BSD License, see the LICENSE file for more details);
  - is actively maintained !
 
 Contact
 ------------------------------------------------------------------------------
 Webpage: http://mp-bull.github.com/qme-ng/
+
 Matthieu Pérotin matthieu.perotin(a)bull.net
