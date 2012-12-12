@@ -1,5 +1,5 @@
 CC=g++
-CCFLAGS=-D__STDC_LIMIT_MACROS -D__cplusplus -O3 -march=native -mtune=native
+CCFLAGS=-D__STDC_LIMIT_MACROS -D__cplusplus -O3 -march=native
 LDFLAGS=-lboost_program_options -lgmp -lgmpxx
 SRCDIR=src
 INC=-I./include
