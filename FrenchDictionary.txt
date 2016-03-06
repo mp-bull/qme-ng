@@ -3,4 +3,5 @@ carquois = quiver
 connexe = connect (or connected?)
 est = is
 et = and
+sommet = source
 voisin = neighbor
