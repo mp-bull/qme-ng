@@ -1,7 +1,10 @@
 Here are a partial list of French words used in this program. Those that are too obvious are not listed.
 carquois = quiver
 connexe = connect (or connected?)
+contenu = content?
 est = is
 et = and
-sommet = vertex?
+ligne = line?
+sommet = vertex
 voisin = neighbor
+vert = green
