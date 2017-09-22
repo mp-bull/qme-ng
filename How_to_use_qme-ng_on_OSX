@@ -1,0 +1,101 @@
+I have recently figured the fact that it is possible to get qme-ng to compile, link and execute successfully under MacOSX. I know this is anything but an achievement for computer science professionals but…I as well as most people who do get interested in qme-ng, are not CS professionals.
+
+The trick here is that you need to download and install several programs correctly to get the program to work. You also need to modify the Makefile Dr.M Perotin gave you.
+
+Here are the steps:
+
+1.Get qme-ng.
+
+You can download qme-ng from github: https://github.com/mp-bull/qme-ng
+
+You then need to unzip it. You can not get it to work right now though since you do not have these two programs: GNU GMP and Boost without which qme-ng does not compile and hence not work.
+
+2.Get and install GNU GMP.
+
+Here the website of GNU GMP to download the latest version: https://gmplib.org/
+
+Please include C++ support in the configuration. (This is important since it is by default NOT included). Please write down where you installed GMP since you will need the information later.
+
+3.Get and install Boost.
+
+Here is the website of Boost to download it: http://www.boost.org/
+
+In essence Boost looks like a collection of packages that do not necessarily have too much to do with each other. You need to install Boost, or at least Boost:programming_options which is used by qme-ng. Please write down where you installed Boost since you will need the information later.
+
+4.Modify your DYLD_LIBRARY_PATH
+
+Please see http://www.boost.org/doc/libs/1_60_0/more/getting_started/unix-variants.html#test-your-program
+
+5.Modify the Makefile
+
+I will give you my version of Makefile that works on my computer later. The problem with Perotin’s Makefile on MacOSX is that it does not work. The libraries and header files in GMP and Boost are NOT included at all which is a huge problem. You need to add to both the -I (include, where do all header files come from) and -L (library, where do all the libraries come from), both of which are from steps 2 and 3.
+
+Here is my Makefile. Yours may be a bit different but you probably want to add to both -I and -L using where your GMP and Boost header files and libraries are. The bold parts are what I added. /usr/local/lib contains my GMP libraries, my /usr/local/boost/lib contains my boost libraries, my /usr/local/include contains my GMP header files and my /usr/local/boost_1_60_0 contains my boost header files. If your Boost version is not 1.60.0 or you install all these things in different places than I do, you need to change your Makefile.
+
+CC=g++
+CCFLAGS=-D__STDC_LIMIT_MACROS -D__cplusplus -O3 -march=native
+LDFLAGS=-L/usr/local/lib -L/usr/local/boost/lib -lboost_program_options -lgmp -lgmpxx
+SRCDIR=src
+INC=-I./include -I/usr/local/include -I/usr/local/boost_1_60_0
+
+all: qme-ng
+Exception.o: $(SRCDIR)/Exception.cpp
+$(CC) $(CCFLAGS) $< $(INC) -c
+greenSizeHash.o: $(SRCDIR)/greenSizeHash.cpp
+$(CC) $(CCFLAGS) $< $(INC) -c
+carquois.o: $(SRCDIR)/carquois.cpp Exception.o
+$(CC) $(CCFLAGS) $< $(INC) -c
+principalExtension.o: $(SRCDIR)/principalExtension.cpp Exception.o
+$(CC) $(CCFLAGS) $< $(INC) -c
+mutexplorator.o: $(SRCDIR)/mutexplorator.cpp carquois.o Exception.o
+$(CC) $(CCFLAGS) $< $(INC) -c
+greenexplorator.o: $(SRCDIR)/greenexplorator.cpp greenSizeHash.o principalExtension.o Exception.o
+$(CC) $(CCFLAGS) $< $(INC) -c
+greenfinder.o: $(SRCDIR)/greenfinder.cpp principalExtension.o Exception.o
+$(CC) $(CCFLAGS) $< $(INC) -c
+mutexploratorSeq.o: $(SRCDIR)/mutexploratorSeq.cpp carquois.o Exception.o mutexplorator.o
+$(CC) $(CCFLAGS) $< $(INC) -c
+rng.o: $(SRCDIR)/rng.c
+$(CC) $(CCFLAGS) $< $(INC) -c
+naututil.o: $(SRCDIR)/naututil.c
+$(CC) $(CCFLAGS) $< $(INC) -c
+nauty.o: $(SRCDIR)/nauty.c
+$(CC) $(CCFLAGS) $< $(INC) -c
+nautil.o: $(SRCDIR)/nautil.c
+$(CC) $(CCFLAGS) $< $(INC) -c
+nausparse.o : $(SRCDIR)/nausparse.c
+$(CC) $(CCFLAGS) $< $(INC) -c
+naugraph.o : $(SRCDIR)/naugraph.c
+$(CC) $(CCFLAGS) $< $(INC) -c
+nautinv.o : $(SRCDIR)/nautinv.c
+$(CC) $(CCFLAGS) $< $(INC) -c
+
+qme-ng: qme-ng.cpp greenexplorator.o greenfinder.o mutexploratorSeq.o mutexplorator.o greenSizeHash.o principalExtension.o carquois.o Exception.o nautil.o rng.o nauty.o naututil.o nausparse.o naugraph.o nautinv.o
+$(CC) $(CCFLAGS) $(INC) $^ $(LDFLAGS) -o $@
+
+clean:
+-rm -f *.o qme-ng *.cpp~ src/*.cpp~ include/*.hpp~ src/*.c~ include/*.h~
+
+Notes:
+
+a) Please do not use any whitespace between -L and the path.
+
+b) Please do use one whitespace to separate different parts in INC and LDFLAGS.
+
+c) Please keep the indentation as it is since wrong indentation is likely to lead to errors.
+
+6.Compile and link qme-ng.
+
+Finally you can make the program. You need to go to the correct folder in Terminal and type “make”. This is enough since all necessary instructions are in your Makefile. There will be a bunch of warnings but it is fine.
+
+7.Now qme-ng works!
+
+Please type in ./qme-ng to see the help instructions. Then you can use it to calculate the number of maximal green sequences of different quivers.
+
+Notes:
+
+a) Prof Keller’s .qmu files are supported.When you have some weird quiver that does not fit into any type please draw it on Keller’s program and then put it into qme-ng.
+
+b) These guys call framed quivers “principal extension”. Yes framed quivers, not coframed quivers. That’s straight from their program.
+
+c) If your quiver is not of finite type and you want to get all maximal green sequences your program probably will never stop. At least I have never observed it ever stops when a quiver of infinite type is entered.
