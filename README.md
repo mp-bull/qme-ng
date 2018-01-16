@@ -34,4 +34,8 @@ Contact
 ------------------------------------------------------------------------------
 Webpage: http://mp-bull.github.com/qme-ng/
 
+Webpage of the forked version: http://mathyingzhou.github.com/qme-ng/
+
 Matthieu Pérotin matthieu.perotin(a)bull.net
+
+Ying Zhou yzhou935(a)brandeis.edu
