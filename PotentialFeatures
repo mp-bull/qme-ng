@@ -1,8 +1,0 @@
-Here are what I'm doing to the program qme-ng:
-1.Add comments. Translate all French terms to English.
-2.Get the program to work on MacOSX.
-In order for 2 to work we need to do several things:
-a) Get GNU gmp. Use it.
-b) Get Boost. Use it.
-c) Compile and link the program.
-If everything is successful I will write a manual on how to get qme-ng to work on MacOSX.
