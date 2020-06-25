@@ -28,7 +28,6 @@ qme-ng:
  - prints its mutations sequences in a format compatible with [Bernhard Keller's java application](http://www.math.jussieu.fr/~keller/quivermutation/);
  - contains tens of small optimizations to cut as many branches in the exploration tree as fast as possible;
  - is free software (BSD License, see the LICENSE file for more details);
- - is actively maintained !
 
 Contact
 ------------------------------------------------------------------------------
